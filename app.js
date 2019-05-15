@@ -1,15 +1,18 @@
 const express = require('express')
+const app = express()
 const methodOverride = require('method-override')
 const session = require('express-session')
 const passport = require('passport')
 const exphbs = require('express-handlebars')
-const app = express()
 const port = 3000
+const bodyParser = require('body-parser')
+const db = require('./models')
+const Todo = db.Todo
+const User = db.User
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
-const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
@@ -40,8 +43,12 @@ app.get('/users/register', (req, res) => {
 })
 
 // 註冊檢查
-app.post('/users/login', (req, res) => {
-  res.send('register')
+app.post('/users/register', (req, res) => {
+  User.create({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+  }).then(user => res.redirect('/'))
 })
 
 // 登出
@@ -50,5 +57,6 @@ app.get('/users/logout', (req, res) => {
 })
 
 app.listen(port, () => {
+  db.sequelize.sync()
   console.log(`App is running on localhost:${port}`)
 })
