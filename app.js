@@ -25,36 +25,10 @@ app.use(
 )
 
 app.get('/', (req, res) => {
-  res.send('hello world!')
+  res.send('home')
 })
 
-// 登入頁面
-app.get('/users/login', (req, res) => {
-  res.render('login')
-})
-// 登入檢查
-app.post('/users/login', (req, res) => {
-  res.send('login')
-})
-
-// 註冊頁面
-app.get('/users/register', (req, res) => {
-  res.render('register')
-})
-
-// 註冊檢查
-app.post('/users/register', (req, res) => {
-  User.create({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-  }).then(user => res.redirect('/'))
-})
-
-// 登出
-app.get('/users/logout', (req, res) => {
-  res.send('logout')
-})
+app.use('/users', require('./routes/user'))
 
 app.listen(port, () => {
   db.sequelize.sync()
