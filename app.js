@@ -9,6 +9,7 @@ const bodyParser = require('body-parser')
 const db = require('./models')
 const Todo = db.Todo
 const User = db.User
+const { authenticated } = require('../config/auth')
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
@@ -36,7 +37,9 @@ app.get('/', (req, res) => {
   res.send('home')
 })
 
+app.use('/', require('./routes/home'))
 app.use('/users', require('./routes/user'))
+app.use('/todos', require('./routes/todo'))
 
 app.listen(port, () => {
   db.sequelize.sync()
