@@ -1,12 +1,26 @@
 const express = require('express')
-const router = express.router()
-const db = require('./models')
+const router = express.Router()
+const db = require('../models')
 const Todo = db.Todo
 const User = db.User
 const { authenticated } = require('../config/auth')
 
 router.get('/', authenticated, (req, res) => {
-  res.send('列出全部Todo')
+  const user = User.findByPk(req.user.id)
+    .then(user => {
+      if (!user) {
+        return res.error()
+      }
+      Todo.findAll({
+        where: {
+          UserId: req.user.id,
+        },
+      }).then(todos => {
+        return res.render('index', { todos: todos })
+      })
+    })
+    .catch(error => {
+      return res.status(422).json(error)
+    })
 })
-
 module.exports = router

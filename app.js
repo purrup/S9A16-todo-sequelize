@@ -9,7 +9,7 @@ const bodyParser = require('body-parser')
 const db = require('./models')
 const Todo = db.Todo
 const User = db.User
-const { authenticated } = require('../config/auth')
+const { authenticated } = require('./config/auth')
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
@@ -31,10 +31,6 @@ require('./config/passport')(passport)
 app.use((req, res, next) => {
   res.locals.user = req.user
   next()
-})
-
-app.get('/', (req, res) => {
-  res.send('home')
 })
 
 app.use('/', require('./routes/home'))
