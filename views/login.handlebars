@@ -1,4 +1,4 @@
-<div class="row mt-5">
+<div class="row mt-5" id="login">
   <div class="col-md-6 m-auto">
     <div class="card card-body">
       <h1 class="text-center mb-3">
@@ -6,14 +6,15 @@
       </h1>
       <form action="/users/login" method="POST">
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email" class="p-0"></label>
           <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password" class="p-0"></label>
           <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" />
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Login</button>
+        <button type="submit" class="btn btn-primary btn-block mb-3 btn-lg">Login</button>
+        <a href="/auth/facebook" class="btn btn-info btn-block btn-lg">Facebook Login</a>
       </form>
       <p class="lead mt-4">
         No Account? <a href="/users/register">Register</a>

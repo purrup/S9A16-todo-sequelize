@@ -1,0 +1,89 @@
+form .form-group label {
+  font-size: 1.5em;
+}
+
+/* login */
+
+#login h1 {
+  text-transform: uppercase;
+}
+
+#login input,
+#login .btn {
+  margin: 0 auto;
+}
+
+#login input {
+  background: none;
+  padding: 5%;
+  width: 55%;
+  text-align: center;
+  outline: none;
+  border-radius: 24px;
+  transition: 0.25s;
+  border: 2px solid #3498db;
+}
+
+#login .btn {
+  margin-top: 40px;
+  padding: 3%;
+  width: 55%;
+  text-align: center;
+  outline: none;
+  border-radius: 24px;
+  transition: 0.25s;
+  font-size: 1.8em;
+}
+
+#login input:hover {
+  width: 90%;
+  border-color: #2ecc71;
+}
+
+#login .btn:hover {
+  width: 90%;
+  border-color: #2ecc71;
+}
+
+/* register */
+
+#register h1 {
+  text-transform: uppercase;
+}
+
+#register input,
+#register .btn {
+  margin: 0 auto;
+}
+
+#register input {
+  background: none;
+  padding: 5%;
+  width: 55%;
+  text-align: center;
+  outline: none;
+  border-radius: 24px;
+  transition: 0.25s;
+  border: 2px solid #3498db;
+}
+
+#register .btn {
+  margin-top: 40px;
+  padding: 3%;
+  width: 55%;
+  text-align: center;
+  outline: none;
+  border-radius: 24px;
+  transition: 0.25s;
+  font-size: 1.8em;
+}
+
+#register input:hover {
+  width: 90%;
+  border-color: #2ecc71;
+}
+
+#register .btn:hover {
+  width: 90%;
+  border-color: #2ecc71;
+}
