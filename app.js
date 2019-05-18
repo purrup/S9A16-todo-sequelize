@@ -1,5 +1,8 @@
 const express = require('express')
 const app = express()
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 const methodOverride = require('method-override')
 const session = require('express-session')
 const passport = require('passport')
@@ -38,6 +41,7 @@ app.use((req, res, next) => {
 app.use('/', require('./routes/home'))
 app.use('/users', require('./routes/user'))
 app.use('/todos', require('./routes/todo'))
+app.use('/auth', require('./routes/auths'))
 
 app.listen(port, () => {
   db.sequelize.sync()
