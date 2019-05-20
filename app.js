@@ -12,7 +12,6 @@ const bodyParser = require('body-parser')
 const db = require('./models')
 const Todo = db.Todo
 const User = db.User
-const { authenticated } = require('./config/auth')
 const flash = require('connect-flash')
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
