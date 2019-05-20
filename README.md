@@ -32,7 +32,7 @@ $ npm install
 $ npm run start
 ```
 
-7. type this URL in your browser
+4. type this URL in your browser
 
    http://localhost:3000
 

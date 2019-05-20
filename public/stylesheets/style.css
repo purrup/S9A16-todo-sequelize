@@ -91,3 +91,17 @@ form .form-group label {
   width: 90%;
   border-color: #2ecc71;
 }
+
+/* edit */
+#edit #back a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+}
+
+/* detail */
+#detail #back a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+}
